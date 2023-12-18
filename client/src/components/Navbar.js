@@ -1,9 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useAuth ,logout} from '../auth'
-
-
-
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useAuth, logout } from '../auth';
 
 const LoggedInLinks = () => {
     return (
@@ -15,12 +12,11 @@ const LoggedInLinks = () => {
                 <Link className="nav-link  active" to="/create_recipe">Create Recipes</Link>
             </li>
             <li className="nav-item">
-                <a className="nav-link active" href="#" onClick={()=>{logout()}}>Log Out</a>
+                <button className="nav-link active" onClick={logout}>Log Out</button>
             </li>
         </>
     )
 }
-
 
 const LoggedOutLinks = () => {
     return (
@@ -32,15 +28,13 @@ const LoggedOutLinks = () => {
                 <Link className="nav-link active" to="/signup">Sign Up</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link active" to="/login" >Login</Link>
+                <Link className="nav-link active" to="/login">Login</Link>
             </li>
-
         </>
     )
 }
 
 const NavBar = () => {
-
     const [logged] = useAuth();
 
     return (
@@ -52,7 +46,7 @@ const NavBar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-                        {logged?<LoggedInLinks/>:<LoggedOutLinks/>}
+                        {logged ? <LoggedInLinks /> : <LoggedOutLinks />}
                     </ul>
                 </div>
             </div>
@@ -60,4 +54,4 @@ const NavBar = () => {
     )
 }
 
-export default NavBar
+export default NavBar;

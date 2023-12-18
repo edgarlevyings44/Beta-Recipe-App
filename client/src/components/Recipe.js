@@ -1,9 +1,8 @@
-import React from 'react'
-import { Button, Card ,Modal} from 'react-bootstrap';
+import React from 'react';
+import { Button, Card } from 'react-bootstrap';
 
-
-const Recipe=({title,description,onClick,onDelete})=>{
-    return(
+const Recipe = ({ title, description, onClick, onDelete }) => {
+    return (
         <Card className="recipe">
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
@@ -15,6 +14,5 @@ const Recipe=({title,description,onClick,onDelete})=>{
         </Card>
     )
 }
-
 
 export default Recipe;
