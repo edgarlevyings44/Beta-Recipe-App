@@ -8,11 +8,17 @@ from recipes import recipe_ns
 from auth import auth_ns
 from flask_cors import CORS
 
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
 
 def create_app(config):
     app = Flask(__name__, static_url_path="/", static_folder="./client/build")
-    app.config.from_object(config)
-
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://levy:RjT4jDo62oFpF458eFadIInMdpMLjik5@dpg-cm0aqk5a73kc73c328ig-a.oregon-postgres.render.com/recipe_app_ocei'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
+    
     CORS(app)
 
     db.init_app(app)

@@ -14,7 +14,7 @@ class Recipe(db.Model):
     title = db.Column(db.String(), nullable=False)
     description = db.Column(db.Text(), nullable=False)
 
-    def __repr__(self):
+    def _repr_(self):
         return f"<Recipe {self.title} >"
 
     def save(self):
@@ -74,7 +74,7 @@ class User(db.Model):
     email = db.Column(db.String(80), nullable=False)
     password = db.Column(db.Text(), nullable=False)
 
-    def __repr__(self):
+    def _repr_(self):
         """
         returns string rep of object
 
